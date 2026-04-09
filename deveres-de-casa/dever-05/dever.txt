@@ -1,0 +1,66 @@
+1) Merge Sort Complexity
+
+The Merge Sort algorithm follows a divide-and-conquer approach. Its recurrence relation is:
+
+T(n)=2T(n/2)+Θ(n)
+
+    Division: Splitting the array into two halves takes Θ(1).
+
+    Conquer: Solving two subproblems of size n/2 takes 2T(n/2).
+
+    Combine: Merging two sorted lists takes Θ(n).
+
+Using the Master Theorem:
+a=2,b=2,f(n)=nlog2​2=n1.
+
+Since f(n)=Θ(nlogb​a), we are in Case 2.
+
+Complexity: O(nlogn)
+
+-----------------------------------------------------------------------------
+
+2) Matrix Multiplication (Naive)
+
+For multiplying two n×n matrices C=A×B, each element Cij​ is calculated as:
+
+Cij​= k=1∑n ​aik​ ⋅ bkj​
+
+    There are n^2 elements in the resulting matrix.
+
+    Each element requires n multiplications and n−1 additions.
+
+    Total operations: n2 ⋅ Θ(n).
+
+Complexity: O(n3)
+
+-----------------------------------------------------------------------------
+
+3) Recurrences (Master Theorem)
+
+The Master Theorem form is: T(n) = aT(n/b) + f(n). We compare f(n) with nlogb(​a).
+
+a) T(n) = 2T(n/4) + sqrt(n)​
+
+    a = 2 , b = 4 ⟹ nlog4(​2) = n^0.5 = sqrt(n)​.
+ 
+    Since f(n) = Θ(sqrt(n)​), this is Case 2.
+
+    Result: T(n) = Θ(sqrt(n)​logn)
+
+b) T(n)=2T(n/4)+n
+
+    a = 2 ,b = 4 ⟹ nlog4​(2) = n​.
+
+    Since f(n) = Ω(n^(0.5+ϵ)) where ϵ = 0.5 (i.e., n grows faster than sqrt(n)​), this is Case 3.
+
+    Check regularity: 2(n/4) ≤ cn ⟹ n/2 ≤ cn for c = 1/2.
+
+    Result: T(n) = Θ(n)
+
+c) T(n) = 16T(n/4) + n^2
+
+    a = 16, b = 4 ⟹ nlog4(​16) = n^2.
+
+    Since f(n) = Θ(n^2), this is Case 2.
+
+    Result: T(n) = Θ(n^2 ⋅ log(n))
